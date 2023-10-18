@@ -8,64 +8,144 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/headers.css" >
     <link rel="stylesheet" href="css/sidebars.css">
+    <link rel="stylesheet" href="css/product.css">
+
 </head>
 <body>
+  
     <!-- header  -->
 
-    <header class="py-3 mb-7 border-bottom">
+    <div class="py-3 mb-7 border-bottom">
         <div class="container d-flex flex-wrap justify-content-center" bis_skin_checked="1">
           <a href="#" class="d-flex align-items-center mb-2 mb-lg-0 me-lg-auto link-body-emphasis text-decoration-none">
             
-            <span class="fs-4">Nippon2u</span>
+            <span class="fs-4" style="margin-left: 20px;">Nippon2u</span>
+
           </a>
           <form class="col-12 col-lg-auto mb-3 mb-lg-0" role="search">
             <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
           </form>
-        </div>
-      </header>
-    
+        <button class="open-button" onclick="openNav()" ><img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Hamburger_icon.svg" alt="burger"></button>
+     
+
+      </div>
+   
 
     <!-- End header -->
     <!-- Side bar  -->
-    <br>
-    <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 280px;" bis_skin_checked="1">
-        <hr>
-        <ul class="nav nav-pills flex-column mb-auto">
+    <div id="mySidebar" class="sidebar">
+
+    <div class="p-5 bg-body-tertiary" style="width: auto;" bis_skin_checked="1">
+      <button class="close-button" onclick="closeNav()"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Hamburger_icon.svg" alt="burger"></button> 
+      <br>
+      <br>
+     <ul class="nav nav-pills flex-column" id="ul">
           <li class="nav-item">
             <a href="#" class="nav-link active" aria-current="page">
-              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+              <img class="bi pe-none me-2" width="16" height="16" src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Home">
               Home
             </a>
           </li>
           <li>
             <a href="#" class="nav-link link-body-emphasis">
-              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
+              <img class="bi pe-none me-2" width="16" height="16" src="https://cdn-icons-png.flaticon.com/512/1413/1413908.png" alt="cart">
               Dashboard
             </a>
           </li>
           <li>
             <a href="#" class="nav-link link-body-emphasis">
-              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+              <img class="bi pe-none me-2" width="16" height="16" src="https://cdn1.iconfinder.com/data/icons/ios-11-glyphs/30/order-512.png" alt="Orders">
               Orders
             </a>
           </li>
           <li>
             <a href="#" class="nav-link link-body-emphasis">
-              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
-              Products
+              <img class="bi pe-none me-2" width="16" height="16" src="https://cdn-icons-png.flaticon.com/512/66/66841.png" alt="Shipping">
+              Shipping
             </a>
           </li>
           <li>
             <a href="#" class="nav-link link-body-emphasis">
-              <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
+              <img class="bi pe-none me-2" width="16" height="16" src="https://cdn1.iconfinder.com/data/icons/ios-11-glyphs/30/order-512.png" alt="Customers">
               Customers
             </a>
           </li>
         </ul>
-        <hr>
+        <br>
+
+      </div><hr>
+    </div> 
     </div>
+  </div>
+
+
     <!-- End Side bar -->
-        
+   
+	<section class="products">
+		<div class="product-card">
+			<div class="product-image">
+				<img src="https://cdn.shopify.com/s/files/1/0938/8938/products/10231100205_1_1315x1800_300_CMYK_1024x1024.jpeg?v=1445623369">
+			</div>
+			<div class="product-info">
+				<h5>Winter Jacket</h5>
+				<h6>$99.99</h6>
+			</div>
+		</div>
+
+    <div class="product-card">
+			<div class="product-image">
+				<img src="https://cdn.shopify.com/s/files/1/0938/8938/products/10231100205_1_1315x1800_300_CMYK_1024x1024.jpeg?v=1445623369">
+			</div>
+			<div class="product-info">
+				<h5>Winter Jacket</h5>
+				<h6>$99.99</h6>
+			</div>
+		</div>
+    
+    <div class="product-card">
+			<div class="product-image">
+				<img src="https://cdn.shopify.com/s/files/1/0938/8938/products/10231100205_1_1315x1800_300_CMYK_1024x1024.jpeg?v=1445623369">
+			</div>
+			<div class="product-info">
+				<h5>Winter Jacket</h5>
+				<h6>$99.99</h6>
+			</div>
+		</div>
+
+    <div class="product-card">
+			<div class="product-image">
+				<img src="https://cdn.shopify.com/s/files/1/0938/8938/products/10231100205_1_1315x1800_300_CMYK_1024x1024.jpeg?v=1445623369">
+			</div>
+			<div class="product-info">
+				<h5>Winter Jacket</h5>
+				<h6>$99.99</h6>
+			</div>
+		</div>
+
+    <div class="product-card">
+			<div class="product-image">
+				<img src="https://cdn.shopify.com/s/files/1/0938/8938/products/10231100205_1_1315x1800_300_CMYK_1024x1024.jpeg?v=1445623369">
+			</div>
+			<div class="product-info">
+				<h5>Winter Jacket</h5>
+				<h6>$99.99</h6>
+			</div>
+		</div>
+
+    <div class="product-card">
+			<div class="product-image">
+				<img src="https://cdn.shopify.com/s/files/1/0938/8938/products/10231100205_1_1315x1800_300_CMYK_1024x1024.jpeg?v=1445623369">
+			</div>
+			<div class="product-info">
+				<h5>Winter Jacket</h5>
+				<h6>$99.99</h6>
+			</div>
+		</div>
+    
+		
+		
+		
+	</section>
 
 
 
@@ -75,6 +155,7 @@
 
 
     <script src="js/bootstrap.min.js"></script>
-    <script src="sidebars.js"></script>
+    <script src="js/sidebars.js"></script>
+    <script src="js/Card-Slider.js"></script>
 </body>
 </html>

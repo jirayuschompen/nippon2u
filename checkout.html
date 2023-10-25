@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/headers.css" >
+    <link rel="stylesheet" href="css/sidebars.css">
+    <link rel="stylesheet" href="css/product.css">
+    <link rel="stylesheet" href="css/radio.css">
+
+</head>
+<body>
+    <!-- header  -->
+
+    <div class="py-3 mb-7 border-bottom">
+        <div class="container d-flex flex-wrap justify-content-center" bis_skin_checked="1">
+          <a href="#" class="d-flex align-items-center mb-2 mb-lg-0 me-lg-auto link-body-emphasis text-decoration-none">
+            
+            <span class="fs-4" style="margin-left: 20px;">Nippon2u</span>
+
+          </a>
+          <form class="col-12 col-lg-auto mb-3 mb-lg-0" role="search">
+            <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+          </form>
+        <button class="open-button" onclick="openNav()" ><img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Hamburger_icon.svg" alt="burger"></button>
+     
+
+      </div>
+   
+
+    <!-- End header -->
+    <!-- Side bar  -->
+    <div id="mySidebar" class="sidebar">
+
+    <div class="p-5 bg-body-tertiary" style="width: auto;" bis_skin_checked="1">
+      <button class="close-button" onclick="closeNav()"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Hamburger_icon.svg" alt="burger"></button> 
+      <br>
+      <br>
+     <ul class="nav nav-pills flex-column" id="ul">
+          <li class="nav-item">
+            <a href="#" class="nav-link active" aria-current="page">
+              <img class="bi pe-none me-2" width="16" height="16" src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Home">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link link-body-emphasis">
+              <img class="bi pe-none me-2" width="16" height="16" src="https://cdn-icons-png.flaticon.com/512/1413/1413908.png" alt="cart">
+              Dashboard
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link link-body-emphasis">
+              <img class="bi pe-none me-2" width="16" height="16" src="https://cdn1.iconfinder.com/data/icons/ios-11-glyphs/30/order-512.png" alt="Orders">
+              Orders
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link link-body-emphasis">
+              <img class="bi pe-none me-2" width="16" height="16" src="https://cdn-icons-png.flaticon.com/512/66/66841.png" alt="Shipping">
+              Shipping
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link link-body-emphasis">
+              <img class="bi pe-none me-2" width="16" height="16" src="https://cdn1.iconfinder.com/data/icons/ios-11-glyphs/30/order-512.png" alt="Customers">
+              Customers
+            </a>
+          </li>
+        </ul>
+        <br>
+
+      </div><hr>
+    </div> 
+    </div>
+  </div>
+
+
+    <!-- End Side bar -->
+    <br>
+    <div class="container-fluid">
+    <h1>ชำระเงิน</h1>
+    <br>
+     <p>กรุณากรอกรายละเอียดด้านล่างเพื่อเสร็จสิ้นการสั่งซื้อสินค้า</p>
+    </div>
+    <br><br>
+
+    <div class="row">
+      <!-- address accordion -->
+      <div class="col-sm-8"> 
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingOne">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                ที่อยู่จัดส่งสินค้า
+              </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body"><button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modaladdressadding" action="dvdinsuccess.php">เพิ่มที่จัดส่งใหม่</button></div>        
+            </div>
+          </div>
+      </div>
+      <br>
+      <br>
+      <!-- choice sending -->
+      <div class="accordion accordion-flush" id="accordionFlushExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseforsendchoice" aria-expanded="false" aria-controls="flush-collapseforsendchoice">
+              วิธีจัดส่ง
+            </button>
+          </h2>
+          <div id="flush-collapseforsendchoice" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">  
+            <br>
+            <div class="radio-group">
+              <input type="radio" id="radio1" name="radio-groupsending" class="radio-input">
+              <label for="radio1" class="radio-label">
+                <span class="radio-inner-circle"></span>
+                <h2>Grab หรือ Lalamove (เก็บค่าจัดส่งปลายทางและสำหรับลูกค้าในกรุงเทพ)</h2>
+                <p></p>
+              </label>
+              <br>
+              <input type="radio" id="radio2" name="radio-groupsending" class="radio-input">
+              <label for="radio2" class="radio-label">
+                <span class="radio-inner-circle"></span>
+                ไปรษณีย์ไทย - EMS
+              </label>
+              <br>
+            </div>  
+          </div>
+        </div>
+    </div>
+    <br>
+    <!-- choice payment -->
+    <div class="accordion accordion-flush" id="accordionFlushpaymentchoice">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingOne">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseforpaymentchoice" aria-expanded="false" aria-controls="flush-collapseforpaymentchoice">
+            วิธีชำระเงิน
+          </button>
+        </h2>
+        <div id="flush-collapseforpaymentchoice" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushpaymentchoice">  
+          <br>
+          <div class="radio-grouppayment">
+            <input type="radio" id="radiopayment1" name="radio-grouppayment" class="radio-input">
+            <label for="radiopayment1" class="radio-label">
+              <span class="radio-inner-circle"></span>
+              <img src="https://www.designil.com/wp-content/uploads/2020/04/prompt-pay-logo.png" alt="float-start" width="200" height="80">
+              <p></p>
+            </label>
+            <br>
+            <input type="radio" id="radiopayment2" name="radio-grouppayment" class="radio-input">
+            <label for="radiopayment2" class="radio-label">
+              <span class="radio-inner-circle"></span>
+              โอนผ่านบัญชีธนาคาร
+            </label>
+            <br>
+            <input type="radio" id="radiopayment3" name="radio-grouppayment" class="radio-input">
+            <label for="radiopayment3" class="radio-label">
+              <span class="radio-inner-circle"></span>
+              เก็บเงินปลายทาง
+            </label>
+            <br>
+          </div>  
+        </div>
+      </div>
+  </div>
+          </div>  
+          <div class="col-sm-4">
+            <!-- for bill description -->
+            <div class="container">
+              <h4>Cart
+                <span class="price" style="color:black">
+                  <i class="fa fa-shopping-cart"></i>
+                  <b>4</b>
+                </span>
+              </h4>
+              <p><a href="#">Product 1</a> <span class="price">$15</span></p>
+              <p><a href="#">Product 2</a> <span class="price">$5</span></p>
+              <p><a href="#">Product 3</a> <span class="price">$8</span></p>
+              <p><a href="#">Product 4</a> <span class="price">$2</span></p>
+              <hr>
+              <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
+            </div>  
+            
+          </div>
+        </div>
+        </div>
+      </div>
+  </div>
+    </div>
+    
+
+
+
+<!----------------------------------------Modal for address adding-------------------------------------------->
+<div class="modal fade" id="modaladdressadding" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modaladdressaddingLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modaladdressaddingLabel">ที่อยู่จัดส่งสินค้า</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <!-- form -->
+            <form class="was-validated">
+              <!--name&lastname-->
+                <div class="row"> 
+                  <div class="col"> &nbsp; ชื่อ
+                    <input type="text" class="form-control" placeholder="ชื่อ" name="addresscusname" required>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                  </div>
+                  <div class="col"> นามสกุล
+                    <input type="text" class="form-control" placeholder="นามสกุล" name="addresscuslastnname" required>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                  </div>
+                </div>
+                <br>
+                <br>
+                <!-- addressnum&alley -->
+                <div class="row"> 
+                    <div class="col"> &nbsp; ที่อยู่
+                      <input type="text" class="form-control" placeholder="บ้านเลขที่ หมู่บ้าน/อาคาร" name="addresscushousenum" required>
+                      <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                    <div class="col"> <br>
+                      <input type="text" class="form-control" placeholder="ซอย" name="addresscusalley">
+                    </div>
+                  </div>
+                  <br>
+                  <!-- street&Subdistrict-->
+                  <div class="row"> 
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="ถนน" name="addresscusstreet">
+                    </div>
+                    <div class="col"> 
+                      <input type="text" class="form-control" placeholder="แขวง/ตำบล" name="addresscusSubdistrict" required>
+                      <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                  </div>
+                  <br>
+                  <!-- district& province-->
+                <div class="row"> 
+                    <div class="col">&nbsp; เขต/อำเภอ
+                      <input type="text" class="form-control" placeholder="เขต/อำเภอ" name="addresscusdistrict" required>
+                      <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                    <div class="col"> จังหวัด
+                      <input type="text" class="form-control" placeholder="จังหวัด" name="addresscusprovince" required>
+                      <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                    </div>
+                <br>
+                <div class="row"> 
+                <div class="col">&nbsp;รหัสไปรษณีย์
+                <input type="text" class="form-control" placeholder="รหัสไปรษณีย์" name="addresscuspostcode" required>
+                <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div class="col">เบอร์โทรศัพท์
+                <input type="text" class="form-control" placeholder="เบอร์โทรศัพท์" name="addresscustelnum" required>
+                <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                </div>
+                
+              </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ยกเลิก</button>
+          <button type="button" class="btn btn-primary">ตกลง</button>
+        </div>
+      </div>
+    </div>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/sidebars.js"></script>
+    <script src="js/Card-Slider.js"></script>
+
+</body>
+</html>

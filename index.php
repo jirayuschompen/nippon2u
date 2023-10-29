@@ -1,10 +1,18 @@
 <?php
+    session_start();
+
     require 'conn.php';
     $sql = "SELECT * FROM product";
     $result = $conn->query($sql);
     if(!$result){
         die("Error : ". $conn->$conn_error);
     }
+
+    if (isset($_GET['logout'])) {
+      session_destroy();
+      unset($_SESSION['username']);
+      header('location: index.php');
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,10 +25,11 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- <link rel="stylesheet" href="css/headers.css" > -->
     <link rel="stylesheet" href="css/sidebars.css">
+    <link rel="stylesheet" href="css/style.css">
     <!-- <link rel="stylesheet" href="css/navbar.css"> -->
     
     <style>
-  
+      
   
       .product-card {
           display: flex;
@@ -52,7 +61,9 @@
           color: #fff !important;
       }
       
-      
+      ///////////////
+
+
     </style>
 </head>
 <body>
@@ -66,20 +77,54 @@
       </i>Nippon2u
       </div>
       <div class="search_bar">
-        <input type="text" placeholder="Search" />
-      </div>
+                <input type="text" id="product-search" placeholder="Search by Product Name" />
+            </div>
+
       <div class="navbar_content">
         <i class="bi bi-grid"></i>
         <i class='bx bx-sun' id="darkLight"></i>
         <i class='bx bx-bell' ></i>
         <!-- <img src="images/profile.jpg" alt="" class="profile" /> -->
-      </div>
+        <?php if (isset($_SESSION['success'])) : ?>
+            <div class="success">
+                <h3>
+                    <?php 
+                        // echo $_SESSION['success'];
+                        // unset($_SESSION['success']);
+                    ?>
+                </h3>
+            </div>
+        <?php endif ?>
+    
+        <!-- logged in user information -->
+        <?php if (isset($_SESSION['username'])) : ?>
+            
+                <i>
+                    <?php 
+                        echo $_SESSION['username']; 
+                    ?>
+                </i>
+            
+
+                <i><a href="index.php?logout=1" class='bx bx-log-out' style="text-decoration: none; color : #707070">
+                  
+                </a></i>
+
+
+
+            <?php else : ?>
+                <!-- Display the "Login" and "Register" buttons -->
+                <i><a href="login.php">Login</a></i>
+                <i><a href="register.php">Register</a></i>
+        <?php endif ?>
+        </div>
     </nav>
     <!-- sidebar -->
     <nav class="sidebar">
       <div class="menu_content">
         <ul class="menu_items">
-          <div class="menu_title menu_"></div>
+          <br>
+          <!-- <div class="menu_title menu_home"></div> -->
           <!-- duplicate or remove this li tag if you want to add or remove navlink with submenu -->
           <!-- start -->
           <li class="item">
@@ -178,11 +223,11 @@
         <!-- Sidebar Open / Close -->
         <div class="bottom_content">
           <div class="bottom expand_sidebar">
-            <span> Expand</span>
+            <!-- <span> Expand</span> -->
             <i class='bx bx-log-in' ></i>
           </div>
           <div class="bottom collapse_sidebar">
-            <span> Collapse</span>
+            <!-- <span> Collapse</span> -->
             <i class='bx bx-log-out'></i>
           </div>
         </div>
@@ -195,41 +240,46 @@
   <!-- End Side bar -->
    
 	<!--  -->
-
   <div class="container my-6">
     <div class="row">
         <div class="col-12 p-md-5">
-          </div>
-            <div class="col-12 mt-7 p-md-7">
-              <div class="row">
-                 <?php
-                    if ($result->num_rows > 0) {
-                        while ($row = $result->fetch_assoc()) {
-                            $output = "<div class='col-md-4 mb-4'>";
-                            $output .= "<div class='card bg-mix-dark-1' style='height: 100%;'>";
-                            $output .= '<img src="' . $row["product_img"] . '" class="card-img-top product-image" alt="Product Image">';
-                            $output .= "<div class='card-body'>";
-                            $output .= "<h6 class='card-title fw-bold'>" . "รหังสินค้า " . $row["product_id"] . "</h6>";
-                            $output .= "<h5 class='card-title fw-bold'>" . $row["product_name"] . "</h5>";
-                            $output .= "<p class='small card-text'>" . $row["product_description"] . "</p>";
-                            $output .= "<h6 class='small card-text'>" . "ราคา " . $row["product_price"] . "</h6>";
-                            $output .= "<p class='small card-text'>" . "จำนวนสินค้า " . $row["product_sock"] . "</p>";
-                            $output .= "<div class='d-flex flex-column'>";
-                            // You can add buttons or links here
-                            $output .= "</div>";
-                            $output .= "</div>";
-                            $output .= "</div>";
-                            $output .= "</div>";
-                            echo $output;
-                          }
-                        } else {
-                          echo "0 results";
-                        }
-                      $conn->close();
-                    ?>
-              </div>
+        </div>
+        <div class="col-12 mt-7 p-md-7">
+            <div class="row" id="product-list">
+                <?php
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        $output = "<div class='col-md-4 mb-4'>";
+                        $output .= "<div class='card bg-mix-dark-1' style='height: 100%;'>";
+                        $output .= '<div class="image-box">';
+                        $output .= '<img src="' . $row["product_img"] . '" class="card-img-top product-image gImg" alt="Product Image">';
+                        $output .= '<div class="logo_icons">';
+                        // Add your logo icons here (as per your CSS styles)
+                        $output .= '</div>';
+                        $output .= '</div>'; // Close image-box
+                        $output .= "<div class='card-body'>";
+                        $output .= "<h6 class='card-id fw-bold'>" . "รหัสสินค้า " . $row["product_id"] . "</h6>";
+                        $output .= "<h5 class='card-title fw-bold'>" . $row["product_name"] . "</h5>";
+                        $output .= "<p class='small card-text'>" . $row["product_description"] . "</p>";
+                        $output .= "<h6 class='small card-text'>" . "ราคา " . $row["product_price"] . "</h6>";
+                        $output .= "<p class 'small card-text'>" . "จำนวนสินค้า " . $row["product_sock"] . "</p>";
+                        $output .= "<div class='d-flex flex-column'>";
+                        // You can add buttons or links here
+                        $output .= "</div>";
+                        $output .= "</div>";
+                        $output .= "</div>";
+                        $output .= "</div>";
+                        echo $output;
+                    }
+                } else {
+                    echo "0 results";
+                }
+                $conn->close();
+                ?>
             </div>
-          </div>
+        </div>
+    </div>
+</div>
 
 
 
@@ -237,7 +287,7 @@
 
 
 
-    
+    <script src="js/search.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/sidebars.js"></script>
 </body>

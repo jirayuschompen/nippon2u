@@ -126,9 +126,9 @@ CREATE TABLE `shoppingcart` (
 
 CREATE TABLE `user` (
   `user_id` int(3) NOT NULL,
-  `user_name` varchar(20) NOT NULL,
-  `user_pass` varchar(30) NOT NULL,
-  `user_email` varchar(40) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `email` varchar(40) NOT NULL,
+  `password` varchar(100) NOT NULL,
   `user_address` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

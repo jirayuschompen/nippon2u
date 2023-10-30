@@ -242,8 +242,7 @@
 	<!--  -->
   <div class="container my-6">
     <div class="row">
-        <div class="col-12 p-md-5">
-        </div>
+        <div class="col-12 p-md-5"></div>
         <div class="col-12 mt-7 p-md-7">
             <div class="row" id="product-list">
                 <?php
@@ -267,6 +266,9 @@
                         // You can add buttons or links here
                         $output .= "</div>";
                         $output .= "</div>";
+                        $output .= "<a href='productbuy.php?pid=".$row["product_id"]."' class='btn btn-primary mb-2'>สั่งซื้อสินค้า "."</a>";
+                        
+                        
                         $output .= "</div>";
                         $output .= "</div>";
                         echo $output;

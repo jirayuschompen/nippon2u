@@ -1,10 +1,7 @@
 <?php
 require 'conn.php';
-$sql_update="INSERT INTO sendaddress(addresscusname,addresscuslastnname,addresscushousenum,addresscusalley,addresscusstreet,addresscusSubdistrict,
-addresscusdistrict,addresscusprovince,addresscuspostcode,addresscustelnum) 
-
-VALUES ('$_POST[sendaddress_name]','$_POST[sendaddress_lastname]','$_POST[sendaddress_houseno]','$_POST[sendaddress_alley]','$_POST[sendaddress_street]','$_POST[sendaddress_subdistrict]',
-'$_POST[sendaddress_district]','$_POST[sendaddress_province]','$_POST[sendaddress_postcode]','$_POST[sendaddress_telephone]')";
+$sql_update="INSERT INTO sendaddress(sendaddress_name,sendaddress_lastname,sendaddress_houseno,sendaddress_alley,sendaddress_street,sendaddress_subdistrict,sendaddress_district,sendaddress_province,sendaddress_postcode,sendaddress_telephone) 
+VALUES ('$_POST[custname]','$_POST[custlastname]','$_POST[housenum]','$_POST[alley]','$_POST[street]','$_POST[Subdistrict]','$_POST[district]','$_POST[province]','$_POST[postcode]','$_POST[telnum]')";
 
 $result= $conn->query($sql_update);
 
